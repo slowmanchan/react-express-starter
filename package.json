@@ -1,0 +1,72 @@
+{
+  "name": "react-express-starter",
+  "version": "1.0.0",
+  "description": "Boilerplate for React-Express app with testing framework",
+  "main": "src/server/app.js",
+  "scripts": {
+    "start": "npm run build:prod && node ./dist/server/app.js",
+    "dev": "concurrently 'npm run build:client:dev' 'npm run build:server:dev' 'nodemon ./dist/server/app.js'",
+    "dev:client": "webpack-dev-server",
+    "build:prod": "npm run build:server && npm run build:client",
+    "build:client": "webpack --config webpack.prod.config.js --profile --colors",
+    "build:client:dev": "webpack --config webpack.config.js --profile --colors --watch",
+    "build:server": "babel src -d dist --copy-files --ignore '**/*.test.js'",
+    "build:server:dev": "babel src -d dist --copy-files --ignore '**/*.test.js' --watch",
+    "test": "jest --coverage && standard",
+    "test:watch": "jest --watch",
+    "standard": "standard",
+    "standard:fix": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Norman Chan",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "concurrently": "^3.5.0",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^20.0.4",
+    "nodemon": "^1.11.0",
+    "react-test-renderer": "^16.0.0",
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0",
+    "webpack": "^3.5.3",
+    "webpack-dev-server": "^2.8.2"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/shim.js",
+      "<rootDir>/src/setupTest.js"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
+}
