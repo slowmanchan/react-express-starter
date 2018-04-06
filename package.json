@@ -24,8 +24,11 @@
   "author": "Norman Chan",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.11",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "style-loader": "^0.20.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
